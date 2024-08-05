@@ -23,7 +23,7 @@ pipeline {
                 echo "Testing.."
                 sh 'go run main.go'
                 echo "doing test stuff.."
-                '''
+                
             }
         }
         stage('Deliver') {
