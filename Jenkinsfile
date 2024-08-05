@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                sh 'go run main.go'
+                sh 'bash -c "go run main.go"'
                 echo "doing test stuff.."
                 
             }
