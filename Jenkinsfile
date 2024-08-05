@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker{
+            image 'golang:latest'
+        }
+    }
     
     // triggers {
     //     pollSCM '*/5 * * * *'
