@@ -13,15 +13,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                '''
+                // sh 'bash -c "export PATH=$PATH:/usr/local/go/bin"'
+                export PATH=$PATH:/usr/local/go/bin
             }
         }
         stage('Test') {
             steps {
                 echo "Testing.."
-                sh 'bash -c "go run main.go"'
+                // sh 'bash -c "go run main.go"'
+                sh 'bash -c "go version"'
                 echo "doing test stuff.."
                 
             }
@@ -29,6 +29,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
+                go run main.go
+                // sh 'bash -c "go run main.go"'
                 sh '''
                 echo "doing delivery stuff.."
                 '''
