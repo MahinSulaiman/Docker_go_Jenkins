@@ -9,8 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                // sh 'bash -c "export PATH=$PATH:/usr/local/go/bin"'
-                export PATH=$PATH:/usr/local/go/bin
+                sh 'bash -c "export PATH=$PATH:/usr/local/go/bin"'
+                // export PATH=$PATH:/usr/local/go/bin
             }
         }
         stage('Test') {
@@ -25,8 +25,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
-                go run main.go
-                // sh 'bash -c "go run main.go"'
+                // go run main.go
+                sh 'bash -c "go run main.go"'
                 sh '''
                 echo "doing delivery stuff.."
                 '''
