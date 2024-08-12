@@ -9,7 +9,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building..."
-                // Combine setting PATH and running commands in a single bash session
                 sh '''
                 export PATH=$PATH:/usr/local/go/bin
                 echo "Go version:"
@@ -19,8 +18,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing..."
-                // Combine setting PATH and running commands in a single bash session
+                echo "Testing..."              
                 sh '''
                 echo "Running tests..."
                 '''
@@ -29,8 +27,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo "Delivering..."
-                // Combine setting PATH and running commands in a single bash session
                 sh '''
+                export PATH=$PATH:/usr/local/go/bin
                 echo "Running main.go..."
                 go run main.go
                 '''
